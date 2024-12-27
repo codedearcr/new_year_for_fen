@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .question {
+            margin: 20px 0;
+        }
+        .result {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .correct {
+            color: green;
+        }
+        .incorrect {
+            color: red;
+        }
+        .caption {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pinyin</h1>
+    <div id="quiz"></div>
+    <button id="submit">Submit</button>
+
+    <script>
+        const questions = [
+            { question: "", answer: "Wǒ xiǎng chī bīngqílín", audio: "audio_q1.mp3", caption: "我想吃冰淇淋" },
+            { question: "", answer: "Wǒ xǐhuān dōngtiān", audio: "audio_q2.mp3", caption: "我喜欢冬天" },
+            { question: "", answer: "Nǐ shìgè cōngmíng rén", audio: "audio_q3.mp3", caption: "你是个聪明人" },
+            { question: "", answer: "Xīnnián kuàilè", audio: "audio_q4.mp3", caption: "新年快乐" },
+            { question: "", answer: "Wǒ jīnnián èrshí'èr suì, wǒ de zhuānyè shì kuàijì", audio: "audio_q5.mp3", caption: "我今年二十二岁，我的专业是会计" }
+        ];
+
+        const quizContainer = document.getElementById('quiz');
+
+        questions.forEach((q, index) => {
+            const questionDiv = document.createElement('div');
+            questionDiv.className = 'question';
+
+            const audio = document.createElement('audio');
+            audio.src = q.audio;
+            audio.controls = true;
+            questionDiv.appendChild(audio);
+
+            const caption = document.createElement('div');
+            caption.className = 'caption';
+            caption.textContent = q.caption;
+            questionDiv.appendChild(caption);
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.id = `answer${index}`;
+            questionDiv.appendChild(input);
+
+            const resultSpan = document.createElement('span');
+            resultSpan.id = `result${index}`;
+            resultSpan.className = 'result';
+            questionDiv.appendChild(resultSpan);
+
+            quizContainer.appendChild(questionDiv);
+        });
+
+        document.getElementById('submit').addEventListener('click', () => {
+            let allCorrect = true;
+
+            questions.forEach((q, index) => {
+                const userAnswer = document.getElementById(`answer${index}`).value.trim();
+                const resultSpan = document.getElementById(`result${index}`);
+
+                if (userAnswer.toLowerCase() === q.answer.toLowerCase()) {
+                    resultSpan.textContent = '✔';
+                    resultSpan.className = 'result correct';
+                } else {
+                    resultSpan.textContent = '✘';
+                    resultSpan.className = 'result incorrect';
+                    allCorrect = false;
+                }
+            });
+
+            if (allCorrect) {
+                alert('Ai chà :vv ghê ghê, đúng hết rồi. Xin chúc mừng');
+                window.location.href = 'next.html';
+            } else {
+                alert('Có câu nào đó trả lời sai, xin hãy thử lại');
+            }
+        });
+    </script>
+</body>
+</html>
