@@ -33,7 +33,7 @@ function makeMove(index) {
         }
         if (isDraw()) {
             drawCount++;
-            statusDisplay.textContent = 'Đòi ăn!!';
+            statusDisplay.textContent = 'Hòa rùi nha!';
             if (drawCount >= 3) {
                 redirectButton.style.display = 'block';
             }
@@ -49,7 +49,7 @@ function aiMove() {
     gameBoard[bestMove] = aiPlayer;
     renderBoard();
     if (checkWin(gameBoard, aiPlayer)) {
-        statusDisplay.textContent = 'Hơi non!!';
+        statusDisplay.textContent = 'Thua rùi haha :vv!';
         endGame();
         return;
     }
