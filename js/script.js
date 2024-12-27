@@ -2575,7 +2575,7 @@ if (IS_HEADER) {
 	init();
 } else {
 	// Allow status to render, then preload assets and start app.
-	setLoadingStatus("Chiếu sáng cầu chì");
+	setLoadingStatus("Đang làm sáng nền");
 	setTimeout(() => {
 		// 只加载 soundManager
 		var promises = [soundManager.preload()];
