@@ -3,29 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe</title>
-    <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nút Loa Phát Âm Thanh</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Game Rules</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #555;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <div class="game-container">
-        <h1>Tic Tac Toe</h1>
-        <div class="board" id="board">
-            <!-- The cells will be generated dynamically -->
-        </div>
-        <p id="status"></p>
-        <button id="restart">Restart</button>
-        <button id="redirect" style="display: none;">Skip</button>
+    <div class="container">
+        <h1>Lưu ý nhỏ trước khi bắt đầu</h1>
+        <p>Chào mừng Hương đến với host của tớ :vv Sau đây là 1 số lưu ý:</p>
+        <ol>
+            <p>Phase 1: Hương sẽ chơi XO với con AI của tớ :vvv</p>
+            <p>Phase 2: Đơn giản là viết pinyin thoi :vv (tớ nghĩ là khó đếy)</p>
+            <p>Phase 3: Là lời chúc :vv</p>
+            <p>Phase 4: Spoil hết thì khum có gì thú zị nhưng ở phía trên góc phải có nút cài đặt nka :vv</p>
+        </ol>
+        <p>Mong Hương lưu ý :vvv Happy New Year :3</p>
+        <p>Sẵn sàng thì ấn nút bên dưới nka</p>
+        <button onclick="startGame()">OK</button>
     </div>
-    <script src="script.js"></script>
-    <h1>Nghe nhạc cho đỡ chán</h1>
-  
-  <!-- Thêm âm thanh với điều khiển -->
-  <audio controls>
-    <source src="audio/audio_matketnoi.mp3" type="audio/mpeg">
-    Trình duyệt của bạn không hỗ trợ thẻ âm thanh.
-  </audio>
+
+    <script>
+        function startGame() {
+            window.location.href = '1.html';
+        }
+    </script>
 </body>
 </html>
